@@ -26,4 +26,4 @@ RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 WORKDIR ${HOME}
 
-CMD ["./launch_jupyter.sh"]
+#CMD ["./launch_jupyter.sh"]
