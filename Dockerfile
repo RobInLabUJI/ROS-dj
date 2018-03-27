@@ -27,3 +27,4 @@ USER ${NB_USER}
 WORKDIR ${HOME}
 
 #CMD ["./launch_jupyter.sh"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0"]
