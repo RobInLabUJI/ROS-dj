@@ -16,10 +16,11 @@ RUN git clone http://root.cern.ch/git/llvm.git src && \
     git clone http://root.cern.ch/git/cling.git && \
     git clone http://root.cern.ch/git/clang.git && \
     cd clang && \
-    git checkout cling-patches && \
-    cd ../.. && \
+    git checkout cling-patches
+    
+RUN    cd ../.. && \
     mkdir build && cd build && \
-    cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release ..\src && \
+    cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release ../src && \
     cmake --build . && \
     cmake --build . --target install && \
     ldconfig && \
