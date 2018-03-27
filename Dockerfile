@@ -3,21 +3,25 @@ FROM ros:kinetic-ros-base
 # install jupyter
 
 RUN apt-get update && apt-get install -y \
-    python-pip wget cmake\
+    python-pip git cmake\
     && rm -rf /var/lib/apt/lists/
     
 RUN pip install --upgrade pip
 RUN pip install jupyter
 
-RUN mkdir -p ~/builds && cd ~/builds && \
-    wget https://root.cern.ch/download/cling/cling_2017-04-15_sources.tar.bz2 && \
-    tar jxf cling_2017-04-15_sources.tar.bz2 && \
-    mv src cling_2017-04-15 && \
-    mkdir -p ~/builds/cling_2017-04-15/build && \
-    cd ~/builds/cling_2017-04-15/build && \
-    cmake -DCMAKE_BUILD_TYPE=Release ../ && \
-    make -j4 && \
-    make install && \
+RUN git clone http://root.cern.ch/git/llvm.git src && \
+    cd src && \
+    git checkout cling-patches && \
+    cd tools && \
+    git clone http://root.cern.ch/git/cling.git && \
+    git clone http://root.cern.ch/git/clang.git && \
+    cd clang && \
+    git checkout cling-patches && \
+    cd ../.. && \
+    mkdir build && cd build && \
+    cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release ..\src && \
+    cmake --build . && \
+    cmake --build . --target install && \
     ldconfig && \
     cd /usr/local/share/cling/Jupyter/kernel && \
     pip install -e . && \
