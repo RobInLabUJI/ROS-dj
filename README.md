@@ -5,8 +5,8 @@ Dockerized ROS with jupyter
 
 ### Pull the image
 
-    docker pull robinlab/ROS-dj
+    docker pull robinlab/ros-dj
     
 ### Run the image
 
-    docker run ROS-dj
+    docker run ros-dj
