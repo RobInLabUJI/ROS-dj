@@ -7,12 +7,6 @@ Dockerized ROS with jupyter
 
     docker pull robinlab/ros-dj
     
-### Build the image locally
-
-    git clone https://github.com/RobInLabUJI/ROS-dj.git
-    cd ROS-dj
-    docker build -t ros-dj .
-
 ### Run the image
 
     docker run --name ros-dj --rm -p 8888:8888 ros-dj
@@ -29,3 +23,9 @@ Press `Ctrl-C` in the docker terminal.
 If needed, run:
 
     docker container stop ros-dj
+
+### Build the image locally
+
+    git clone https://github.com/RobInLabUJI/ROS-dj.git
+    cd ROS-dj
+    docker build -t ros-dj .
