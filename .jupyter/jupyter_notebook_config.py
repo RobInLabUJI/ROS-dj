@@ -113,7 +113,7 @@
 #c.NotebookApp.cookie_secret_file = u''
 
 ## The default URL to redirect to from `/`
-#c.NotebookApp.default_url = '/tree'
+c.NotebookApp.default_url = '/index.ipynb'
 
 ## Disable cross-site-request-forgery protection
 #  
@@ -171,7 +171,7 @@
 #c.NotebookApp.iopub_msg_rate_limit = 1000
 
 ## The IP address the notebook server will listen on.
-#c.NotebookApp.ip = 'localhost'
+c.NotebookApp.ip = '0.0.0.0'
 
 ## Supply extra arguments that will be passed to Jinja environment.
 #c.NotebookApp.jinja_environment_options = {}
@@ -211,7 +211,7 @@
 #c.NotebookApp.nbserver_extensions = {}
 
 ## The directory to use for notebooks and kernels.
-c.NotebookApp.notebook_dir = u''
+c.NotebookApp.notebook_dir = u'Notebooks'
 
 ## Whether to open in a browser after starting. The specific browser used is
 #  platform dependent and determined by the python standard library `webbrowser`
