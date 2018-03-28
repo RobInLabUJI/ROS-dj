@@ -1,7 +1,5 @@
 FROM ros:kinetic-ros-base
 
-# install jupyter
-
 RUN apt-get update && apt-get install -y \
     python-pip git cmake\
     && rm -rf /var/lib/apt/lists/
