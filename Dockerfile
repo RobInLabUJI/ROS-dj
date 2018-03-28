@@ -9,25 +9,6 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --upgrade pip
 RUN pip install jupyter
 
-RUN git clone http://root.cern.ch/git/llvm.git src && \
-    cd src && \
-    git checkout cling-patches && \
-    cd tools && \
-    git clone http://root.cern.ch/git/cling.git && \
-    git clone http://root.cern.ch/git/clang.git && \
-    cd clang && \
-    git checkout cling-patches
-    
-RUN    cd ../.. && \
-    mkdir build && cd build && \
-    cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release ../src && \
-    cmake --build . && \
-    cmake --build . --target install && \
-    ldconfig && \
-    cd /usr/local/share/cling/Jupyter/kernel && \
-    pip install -e . && \
-    jupyter kernelspec install cling-cpp11
-
 EXPOSE 8888
 ENV NB_USER user
 ENV NB_UID 1000
