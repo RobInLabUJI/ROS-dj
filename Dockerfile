@@ -2,7 +2,7 @@ FROM ros:kinetic-ros-base
 
 RUN apt-get update && apt-get install -y \
     python-pip git cmake\
-    && rm -rf /var/lib/apt/lists/
+    && rm -rf /var/lib/apt/lists/*
     
 RUN pip install --upgrade pip
 RUN pip install jupyter
