@@ -113,7 +113,7 @@
 #c.NotebookApp.cookie_secret_file = u''
 
 ## The default URL to redirect to from `/`
-c.NotebookApp.default_url = '/index.ipynb'
+c.NotebookApp.default_url = '/notebooks/index.ipynb'
 
 ## Disable cross-site-request-forgery protection
 #  
