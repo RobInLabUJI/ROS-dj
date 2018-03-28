@@ -24,4 +24,4 @@ RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 WORKDIR ${HOME}/Notebooks
 
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "index.ipynb"]
+CMD ["jupyter", "notebook"]
